@@ -1,0 +1,22 @@
+สร้าง database
+python -c "from app.database import Base, engine; Base.metadata.create_all(bind=engine)"
+
+
+กำหนดสถานะเป็น "เริ่มใหม่"
+alembic stamp head
+
+
+สร้าง Revision ใหม่
+alembic revision --autogenerate -m "Fix migrations"
+
+
+สร้างไฟล์ Migration
+alembic revision --autogenerate -m "Add role column to users"
+
+
+รัน Migration ใหม่
+alembic upgrade head
+
+
+รัน fast API
+uvicorn app.main:app --reload

@@ -2,8 +2,10 @@ fastapi
 uvicorn
 sqlalchemy
 databases
-sqlite3
+# sqlite3
 python-dotenv
 passlib
 PyJWT
-
+email-validator
+migrations
+alembic
