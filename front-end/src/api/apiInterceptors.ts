@@ -29,7 +29,7 @@ apiClient.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       console.warn("Unauthorized! Redirecting to login...");
-    //   sessionStorage.removeItem("access_token");
+      sessionStorage.removeItem("access_token");
     //   window.location.href = "/";
     }
     return Promise.reject(error);

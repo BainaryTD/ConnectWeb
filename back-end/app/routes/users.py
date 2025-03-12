@@ -15,9 +15,10 @@ def get_db():
     finally:
         db.close()
 
-@router.get("/user")
-async def get_user(user: UserResponse = Depends(get_current_user)):
-    return {"user": user}
+
+@router.get("/user", response_model=UserResponse)
+async def get_user(current_user: User = Depends(get_current_user)):
+    return current_user
 
 # TODO: สำหรับทำหน้า admin
 @router.get("/user/{user_id}", response_model=UserResponse)
