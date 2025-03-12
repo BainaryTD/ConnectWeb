@@ -6,6 +6,7 @@ import {
   InfoCircleOutlined,
   ExperimentOutlined,
   MenuOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 
 const { Header } = Layout;
@@ -106,36 +107,52 @@ const NavbarCom: React.FC = () => {
               MyLogo
             </h2>
           </Link>
-
-          {isMobile ? (
-            <Button
-              type="text"
-              icon={<MenuOutlined />}
-              onClick={() => setIsDrawerOpen(true)}
-            />
-          ) : (
-            <div style={{ display: "flex", gap: "20px" }}>
-              {sections.map((item) => (
-                <a
-                  key={item.key}
-                  href={item.key}
-                  onClick={(e) => handleNavigation(e, item.key)}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    fontSize: "16px",
-                    textDecoration: "none",
-                    color: activeKey === item.key ? "#722ED1" : "#1677ff",
-                    fontWeight: activeKey === item.key ? "bold" : "normal",
-                    transition: "color 0.3s ease",
-                  }}
-                >
-                  {item.icon} {item.label}
-                </a>
-              ))}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            {isMobile ? (
+              <Button
+                type="text"
+                icon={<MenuOutlined />}
+                onClick={() => setIsDrawerOpen(true)}
+              />
+            ) : (
+              <div style={{ display: "flex", gap: "20px" }}>
+                {sections.map((item) => (
+                  <a
+                    key={item.key}
+                    href={item.key}
+                    onClick={(e) => handleNavigation(e, item.key)}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      fontSize: "16px",
+                      textDecoration: "none",
+                      color: activeKey === item.key ? "#722ED1" : "#1677ff",
+                      fontWeight: activeKey === item.key ? "bold" : "normal",
+                      transition: "color 0.3s ease",
+                    }}
+                  >
+                    {item.icon} {item.label}
+                  </a>
+                ))}
+              </div>
+            )}
+            <div className="flex justify-center items-center w-[24px] h-[24px] rounded bg-gray-400">
+              <Link
+                to="/login"
+                className="text-lg text-gray-700 hover:text-blue-500"
+              >
+                <UserOutlined />
+              </Link>
             </div>
-          )}
+          </div>
         </Header>
       </Affix>
 
