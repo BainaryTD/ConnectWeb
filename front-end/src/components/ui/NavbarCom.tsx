@@ -8,6 +8,7 @@ import {
   MenuOutlined,
   UserOutlined,
   LogoutOutlined,
+  MailOutlined,
 } from "@ant-design/icons";
 import { useGetUser } from "../../hooks/useGetUser";
 
@@ -123,7 +124,7 @@ const NavbarCom: React.FC = () => {
       key: "email",
       label: (
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <UserOutlined />
+          <MailOutlined />
           {/* ถ้าโหลดอยู่ให้แสดง Loading ถ้า error แสดง Error ถ้าได้ data แล้วแสดงชื่อ */}
           {isLoading ? "Loading..." : isError ? "Error" : user?.email || "Email"}
         </div>
