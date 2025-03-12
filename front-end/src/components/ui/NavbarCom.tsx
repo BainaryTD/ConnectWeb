@@ -144,10 +144,10 @@ const NavbarCom: React.FC = () => {
                 ))}
               </div>
             )}
-            <div className="flex justify-center items-center w-[24px] h-[24px] rounded bg-gray-400">
+            <div className="flex justify-center items-center w-[24px] h-[24px] rounded bg-blue-300 hover:bg-blue-500">
               <Link
                 to="/login"
-                className="text-lg text-gray-700 hover:text-blue-500"
+                className="text-lg !text-white"
               >
                 <UserOutlined />
               </Link>

@@ -1,16 +1,55 @@
 // import React from "react";
-import { Form, Input, Button } from "antd";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Form, Input, Button, Modal } from "antd";
+import { useRegister } from "../hooks/useRegister";
+import { useEffect, useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
+
+
+interface valuesInterface {
+  fullname: string;
+  email: string;
+  username: string;
+  password: string;
+  confirmPassword: string
+}
 
 const Register = () => {
-  const onFinish = (values: unknown) => {
-    console.log("Received values:", values);
+
+  const { mutate: register, isPending, isError, error, data } = useRegister();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const onFinish = (values: valuesInterface) => {
+    const data = {
+      fullname: values.fullname,
+      email: values.email,
+      username: values.username,
+      password: values.password
+    }
+    register(data);
+
   };
+
+  useEffect(() => {
+    if (isError) {
+      setIsModalVisible(true);
+    }
+  }, [isError]);
+
+  useEffect(() => {
+    if (data) {
+      navigate({ to: "/register-done" });
+    }
+  }, [data, navigate]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
-        <Form layout="vertical" onFinish={onFinish} autoComplete="off">
+        <Form layout="vertical" onFinish={onFinish} autoComplete="off"
+          initialValues={{ fullname: "John Doe", email: "1@gmail.com", username: "bainary", password: "password", confirmPassword: "password" }}
+        >
           <Form.Item
             label="Full Name"
             name="fullname"
@@ -31,7 +70,7 @@ const Register = () => {
           >
             <Input placeholder="Email" />
           </Form.Item>
-          
+
           <Form.Item
             label="Username"
             name="username"
@@ -72,12 +111,26 @@ const Register = () => {
               type="primary"
               htmlType="submit"
               className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-2"
+              loading={isPending}
             >
               Register
             </Button>
           </Form.Item>
         </Form>
       </div>
+      <Modal
+        title="Error"
+        open={isModalVisible}
+        onCancel={() => setIsModalVisible(false)}
+        closable={false}
+        footer={[
+          <Button key="close" type="primary" onClick={() => setIsModalVisible(false)}>
+            Close
+          </Button>
+        ]}
+      >
+        <p>{error?.message || "An unknown error occurred."}</p>
+      </Modal>
     </div>
   );
 };

@@ -6,7 +6,6 @@ import { AppQueryProvider } from './providers/QueryClientProvider.tsx'
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
 import { createRouter, RouterProvider } from '@tanstack/react-router'
-
 // Create a new router instance
 const router = createRouter({ routeTree })
 
@@ -18,9 +17,9 @@ declare module '@tanstack/react-router' {
 }
 
 createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <AppQueryProvider>
       <RouterProvider router={router} />
     </AppQueryProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 )

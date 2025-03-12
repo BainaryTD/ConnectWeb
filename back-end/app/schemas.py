@@ -9,6 +9,10 @@ class UserCreate(BaseModel):
     email: EmailStr
     password: str
     role: RoleEnum = RoleEnum.user
+    
+class UserLogin(BaseModel):
+    username: str
+    password: str
 
 class UserResponse(BaseModel):
     id: int

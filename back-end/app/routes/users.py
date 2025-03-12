@@ -15,23 +15,12 @@ def get_db():
     finally:
         db.close()
 
-@router.post("/", response_model=UserResponse)
-def create_user(user: UserCreate, db: Session = Depends(get_db)):
-    # ตรวจสอบ username หรือ email ซ้ำ
-    existing_user = db.query(User).filter((User.username == user.username) | (User.email == user.email)).first()
-    if existing_user:
-        raise HTTPException(status_code=400, detail="Username or email already exists")
-    
-    # Hash Password และบันทึกข้อมูล
-    hashed_pw = hash_password(user.password)
-    new_user = User(fullname=user.fullname, username=user.username, email=user.email, hashed_password=hashed_pw)
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
-    
-    return new_user
+@router.get("/user")
+async def get_user(user: UserResponse = Depends(get_current_user)):
+    return {"user": user}
 
-@router.get("/{user_id}", response_model=UserResponse)
+# TODO: สำหรับทำหน้า admin
+@router.get("/user/{user_id}", response_model=UserResponse)
 def get_user(user_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     user = db.query(User).filter(User.id == user_id).first()
     

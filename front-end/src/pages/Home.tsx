@@ -2,8 +2,11 @@
 // import NavbarCom from "../components/ui/NavbarCom";
 
 import Banner from "../components/้home/Banner";
+import { useGetUser } from "../hooks/useGetUser";
 
 const Home = () => {
+  const { data: user, isLoading, isError, refetch } = useGetUser();
+  console.log(user)
   return (
     <>
       <section id="home">
