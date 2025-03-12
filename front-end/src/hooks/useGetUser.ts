@@ -8,7 +8,7 @@ interface User {
   username: string;
 }
 
-export function useGetUser() {
+export function useGetUser(p0: { enabled: boolean; }) {
   return useQuery<User, Error>({
     queryKey: ["getUser"],
     queryFn: async () => {
