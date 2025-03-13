@@ -1,54 +1,30 @@
-# React + TypeScript + Vite
+# 🛠️ Technologies Used
+- This project is built using the following technologies:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+# 📌 Frontend
+- React 19 – A JavaScript library for building user interfaces.
+- React DOM 19 – React library for working with the DOM.
+- Vite – A fast build tool for modern web development.
+- TypeScript – A typed superset of JavaScript for better code maintainability.
+- Tailwind CSS 4 – A utility-first CSS framework for styling.
+- Ant Design – A UI component library for building modern and elegant interfaces.
+  
+# ⚡ State & Data Management
+- TanStack React Query – Data fetching and caching solution.
+- TanStack React Router – A powerful routing library for React.
+- TanStack React Table – A flexible table and data grid solution.
+- Axios – A popular HTTP client for making API requests.
+  
+# 🔧 Development & Tooling
+- ESLint – A tool for linting and enforcing coding standards.
+- TypeScript ESLint – TypeScript support for ESLint.
+- React Hooks ESLint Plugin – Ensures proper use of React hooks.
+- React Refresh ESLint Plugin – Helps with fast refresh development.
+- Vite React SWC Plugin – Enables fast builds using SWC.
+- TanStack Router DevTools & Plugin – Developer tools for debugging TanStack Router.
+- Globals – A package for handling global variables.
+  
+# 🏗️ Build & Deployment
+- TypeScript Compiler (TSC) – Used to compile TypeScript code.
+- Vite Build – For building optimized production-ready code.
+- Vite Preview – A preview server for testing production builds.

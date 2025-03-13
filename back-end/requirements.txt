@@ -2,7 +2,6 @@ fastapi
 uvicorn
 sqlalchemy
 databases
-# sqlite3
 python-dotenv
 passlib
 PyJWT
