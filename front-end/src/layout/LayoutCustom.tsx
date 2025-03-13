@@ -1,6 +1,7 @@
 import React from "react";
 import { Divider, Layout } from "antd";
 import NavbarCom from "../components/ui/NavbarCom";
+import FooterCom from "../components/ui/FooterCom";
 
 const { Content, Footer } = Layout;
 
@@ -30,6 +31,7 @@ const LayoutCustom = ({ children }: LayoutProps) => {
       </Content>
 
       {/* Footer */}
+      <FooterCom />
       <Footer style={footerStyle}>
         <Divider style={{ marginTop: 0 }} />
         ConnentWeb ©{new Date().getFullYear()} Created by Bainary

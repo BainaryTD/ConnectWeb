@@ -18,8 +18,8 @@ const { Header } = Layout;
 const sections = [
   { key: "/#home", label: "Home", icon: <HomeOutlined /> },
   { key: "/#about", label: "About", icon: <InfoCircleOutlined /> },
-  { key: "/#services", label: "services", icon: <CustomerServiceOutlined /> },
-  { key: "/#features", label: "features", icon: <ExperimentOutlined /> },
+  { key: "/#services", label: "Services", icon: <CustomerServiceOutlined /> },
+  { key: "/#features", label: "Features", icon: <ExperimentOutlined /> },
   // { key: "/contact", label: "Contact", icon: <InfoCircleOutlined /> },
 ];
 

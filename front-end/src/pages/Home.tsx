@@ -27,8 +27,8 @@ const Home = () => {
         <Features />
       </section>
       <Partners />
-      <Articles />
       <History />
+      <Articles />
     </>
   );
 };

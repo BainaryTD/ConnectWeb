@@ -4,11 +4,15 @@ import { Image } from "antd";
 import image11 from "../../assets/images/11.png";
 
 const partners = [
-  { src: image11, alt: "BSGF" },
-  { src: image11, alt: "Thai XCM" },
-  { src: image11, alt: "Demeter ICT" },
-  { src: image11, alt: "Oppo" },
-  { src: image11, alt: "Mixue" },
+  { src: image11, alt: "" },
+  { src: image11, alt: "" },
+  { src: image11, alt: "" },
+  { src: image11, alt: "" },
+  { src: image11, alt: "" },
+  { src: image11, alt: "" },
+  { src: image11, alt: "" },
+  { src: image11, alt: "" },
+  { src: image11, alt: "" },
 ];
 
 const Partners: React.FC = () => {
@@ -18,7 +22,7 @@ const Partners: React.FC = () => {
         Our Trusted Partners
       </h2>
       
-      <Marquee pauseOnHover speed={50} gradient={false}>
+      <Marquee speed={50}>
         {partners.map((partner, index) => (
           <div key={index} className="mx-8 flex items-center">
             <Image
