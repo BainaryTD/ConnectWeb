@@ -8,14 +8,18 @@ const { Title, Paragraph } = Typography;
 const Banner: React.FC = () => {
   return (
     <Content
-      style={{ position: "relative", textAlign: "center", color: "#fff" }}
+      style={{
+        position: "relative",
+        textAlign: "center",
+        color: "#fff",
+      }}
     >
       <Image
         src={image219}
         alt="Banner"
         preview={false}
         style={{
-          width: "100%",
+          width: "100vw",
           //   height: "400px",
           objectFit: "cover",
           filter: "brightness(0.7)",

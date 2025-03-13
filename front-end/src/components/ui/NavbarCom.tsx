@@ -9,6 +9,7 @@ import {
   UserOutlined,
   LogoutOutlined,
   MailOutlined,
+  CustomerServiceOutlined,
 } from "@ant-design/icons";
 import { useGetUser } from "../../hooks/useGetUser";
 
@@ -17,21 +18,20 @@ const { Header } = Layout;
 const sections = [
   { key: "/#home", label: "Home", icon: <HomeOutlined /> },
   { key: "/#about", label: "About", icon: <InfoCircleOutlined /> },
-  { key: "/#test", label: "Test", icon: <ExperimentOutlined /> },
-  { key: "/contact", label: "Contact", icon: <InfoCircleOutlined /> },
+  { key: "/#services", label: "services", icon: <CustomerServiceOutlined /> },
+  { key: "/#features", label: "features", icon: <ExperimentOutlined /> },
+  // { key: "/contact", label: "Contact", icon: <InfoCircleOutlined /> },
 ];
 
 const NavbarCom: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // เช็ค Token จาก sessionStorage
+  // ใช้ useState เพื่อให้ React ตอบสนองต่อการเปลี่ยนแปลงของ Token
   const accessToken = sessionStorage.getItem("access_token") || "";
 
   // เรียก useGetUser เมื่อมี token เท่านั้น
-  const { data: user, isLoading, isError } = useGetUser({
-    enabled: !!accessToken,
-  });
+  const { data: user, isLoading, isError } = useGetUser(!!accessToken);
 
   // จัดการ activeKey สำหรับไฮไลท์เมนู
   const [activeKey, setActiveKey] = useState(() => {
@@ -126,7 +126,11 @@ const NavbarCom: React.FC = () => {
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <MailOutlined />
           {/* ถ้าโหลดอยู่ให้แสดง Loading ถ้า error แสดง Error ถ้าได้ data แล้วแสดงชื่อ */}
-          {isLoading ? "Loading..." : isError ? "Error" : user?.email || "Email"}
+          {isLoading
+            ? "Loading..."
+            : isError
+              ? "Error"
+              : user?.email || "Email"}
         </div>
       ),
     },
@@ -161,7 +165,7 @@ const NavbarCom: React.FC = () => {
             </h2>
           </Link>
 
-          {/* โซนขวาของ Navbar */}
+          {/* Navbar */}
           <div
             style={{
               display: "flex",

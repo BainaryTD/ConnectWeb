@@ -1,40 +1,34 @@
 // import React from "react";
 // import NavbarCom from "../components/ui/NavbarCom";
 
+import About from "../components/้home/About";
+import Articles from "../components/้home/Articles";
 import Banner from "../components/้home/Banner";
+import CarouselImage from "../components/้home/CarouselImage";
+import Features from "../components/้home/Features";
+import Services from "../components/้home/Services";
+import History from "../components/้home/History";
+import Partners from "../components/้home/Partners";
 
 const Home = () => {
-
   return (
     <>
       <section id="home">
         <Banner />
       </section>
-      <section
-        id="about"
-        style={{
-          height: "100vh",
-          padding: "50px",
-          background: "#e6f7ff",
-          marginBottom: "24px",
-          borderRadius: "8px",
-        }}
-      >
-        <h2>ℹ️ About Section</h2>
-        <p>This is the about section.</p>
+      <section id="about">
+        <About />
       </section>
-      <section
-        id="test"
-        style={{
-          height: "100vh",
-          padding: "50px",
-          background: "#f5f5f5",
-          borderRadius: "8px",
-        }}
-      >
-        <h2>🧪 Test Section</h2>
-        <p>This is the test section.</p>
+      <section id="services">
+        <Services />
       </section>
+      <section id="features">
+        <CarouselImage />
+        <Features />
+      </section>
+      <Partners />
+      <Articles />
+      <History />
     </>
   );
 };
