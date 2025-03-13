@@ -118,7 +118,6 @@ const NavbarCom: React.FC = () => {
     navigate({ to: "/login" });
   };
 
-  // สร้างเมนูใน Dropdown (AntD v5)
   const dropdownItems: MenuProps["items"] = [
     {
       key: "email",

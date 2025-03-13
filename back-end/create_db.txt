@@ -1,3 +1,5 @@
+create_files.bat
+
 สร้าง database
 python -c "from app.database import Base, engine; Base.metadata.create_all(bind=engine)"
 

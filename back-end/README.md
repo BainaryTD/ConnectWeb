@@ -154,10 +154,6 @@ This project uses JWT for authentication.
     ├── requirements.txt
 
 
-## License
-
-This project is licensed under the MIT License.
-
 ## Contact
 
 For any inquiries, feel free to contact Bainary at [tpk.devx@gmail.com].
